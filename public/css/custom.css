@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Questrial');
+
+/* font-family: 'Questrial', sans-serif;
+font-family: 'Comfortaa', cursive; */
+
+body {
+  font-family: 'Questrial', sans-serif;
+}
+
+.navbar-brand {
+  font-family: 'Comfortaa', cursive;
+  text-transform: uppercase;
+}
