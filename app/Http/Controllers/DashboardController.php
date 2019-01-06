@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Transaction;
+use Auth;
 
-class HomeController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -25,7 +26,10 @@ class HomeController extends Controller
     public function index()
     {
 
-        $transactions = Transaction::all();
+        $transactions = Transaction::orderBy('created_at','desc')
+          ->where("user_id", Auth::user()->id)
+          ->take(5)
+          ->get();
 
         return view('dashboard', [
           'transactions' => $transactions
