@@ -47,6 +47,22 @@
 
               </div>
           </div>
+
+          <div class="card">
+              <div class="card-header">Upcoming Bills</div>
+              <div class="card-body">
+
+                @foreach ($bills as $b)
+                  <div class="recent-transaction">
+                    <img src="{{ $b->image }}">
+                    <h3>{{ $b->name }}</h3>
+                    <p><b>&pound;{{ $b->amount }}</b> | Due {{ date('jS F', strtotime($b->payment_date)) }}</p>
+                  </div>
+                @endforeach
+
+              </div>
+          </div>
+
         </div>
     </div>
 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Transaction;
+use App\Bill;
 use Auth;
 
 class DashboardController extends Controller
@@ -31,8 +32,14 @@ class DashboardController extends Controller
           ->take(5)
           ->get();
 
+        $bills = Bill::orderby('payment_date', 'asc')
+          ->where("user_id", Auth::user()->id)
+          ->take(5)
+          ->get();
+
         return view('dashboard', [
-          'transactions' => $transactions
+          'transactions' => $transactions,
+          'bills' => $bills
         ]);
     }
 }
