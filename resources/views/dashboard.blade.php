@@ -24,7 +24,7 @@
               <div class="card-body">
 
                 <div class="quick-overview">
-                  <h2>£4000</h2>
+                  <h2>&pound{{ Auth::user()->salary }}</h2>
                   <p>Available to spend</p>
 
                   <p>20 Days until Payday</p>
@@ -44,7 +44,7 @@
                     <p><b class="expense">&pound;{{ $t->amount }}</b> | {{ $t->description }}</p>
                   </div>
                 @endforeach
-                
+
               </div>
           </div>
         </div>
