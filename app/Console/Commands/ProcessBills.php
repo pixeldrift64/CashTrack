@@ -54,6 +54,7 @@ class ProcessBills extends Command
 
         DB::table('bills')
           ->where('user_id', $bill->user_id)
+          ->where('id', $bill->id)
           ->update([
             'payment_date' => \Carbon\Carbon::now()->addMonths(1)
           ]);
