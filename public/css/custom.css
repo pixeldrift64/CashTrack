@@ -7,7 +7,58 @@ body {
   font-family: 'Questrial', sans-serif;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Comfortaa', cursive;
+}
+
+p {
+  font-family: 'Questrial', sans-serif;
+}
+
 .navbar-brand {
   font-family: 'Comfortaa', cursive;
   text-transform: uppercase;
+}
+
+.expense {
+  color: red;
+}
+
+.gain {
+  color: green;
+}
+
+.card {
+  margin-bottom: 30px;
+}
+
+.quick-overview {
+  text-align: center;
+}
+
+.quick-overview h2 {
+  font-size: 60px;
+  margin-bottom: 0;
+  font-
+}
+
+.recent-transaction {
+  height: 56px;
+  padding: 5px 0;
+}
+
+.recent-transaction img {
+  float: left;
+  width: 45px;
+  margin-right: 11px;
+}
+
+.recent-transaction h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.recent-transaction p {
+  font-size: 13px;
+  margin-bottom: 5px;
 }
