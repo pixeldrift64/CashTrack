@@ -37,23 +37,14 @@
               <div class="card-header">Recent Transactions</div>
               <div class="card-body">
 
-                <div class="recent-transaction">
-                  <img src="https://pbs.twimg.com/profile_images/1080454881553645569/LaoFLh4d_400x400.jpg" />
-                  <h3>Nintendo</h3>
-                  <p><b class="expense">£30</b> | Game purchase</p>
-                </div>
-
-                <div class="recent-transaction">
-                  <img src="https://pbs.twimg.com/profile_images/816259201425113089/e_th87wB_400x400.jpg" />
-                  <h3>Northern Parrots</h3>
-                  <p><b class="expense">£50</b> | Parrot Food</p>
-                </div>
-
-                <div class="recent-transaction">
-                  <img src="https://pbs.twimg.com/profile_images/378800000730321932/70d654373f7121d4ba67b706ab65a4bf_400x400.png" />
-                  <h3>Evolution Funding</h3>
-                  <p><b class="gain">£3000</b> | Salary</p>
-                </div>
+                @foreach ($transactions as $t)
+                  <div class="recent-transaction">
+                    <img src="{{ $t->image }}">
+                    <h3>{{ $t->name }}</h3>
+                    <p><b class="expense">&pound;{{ $t->amount }}</b> | {{ $t->description }}</p>
+                  </div>
+                @endforeach
+                
               </div>
           </div>
         </div>
