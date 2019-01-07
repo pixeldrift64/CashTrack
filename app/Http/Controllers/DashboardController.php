@@ -20,26 +20,26 @@ class DashboardController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the application dashboard index.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
     {
+      $transactions = Transaction::orderBy('created_at','desc')
+        ->where("user_id", Auth::user()->id)
+        ->take(5)
+        ->get();
 
-        $transactions = Transaction::orderBy('created_at','desc')
-          ->where("user_id", Auth::user()->id)
-          ->take(5)
-          ->get();
+      $bills = Bill::orderby('payment_date', 'asc')
+        ->where("user_id", Auth::user()->id)
+        ->take(5)
+        ->get();
 
-        $bills = Bill::orderby('payment_date', 'asc')
-          ->where("user_id", Auth::user()->id)
-          ->take(5)
-          ->get();
-
-        return view('dashboard', [
-          'transactions' => $transactions,
-          'bills' => $bills
-        ]);
+      return view('dashboard.index', [
+        'transactions' => $transactions,
+        'bills' => $bills
+      ]);
     }
+    
 }
