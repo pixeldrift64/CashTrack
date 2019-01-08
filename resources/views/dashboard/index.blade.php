@@ -24,7 +24,7 @@
               <div class="card-body">
 
                 <div class="quick-overview">
-                  <h2>&pound{{ Auth::user()->salary }}</h2>
+                  <h2>&pound{{ $remaining }}</h2>
                   <p>Available to spend</p>
 
                   <p>20 Days until Payday</p>

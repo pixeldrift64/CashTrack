@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Transaction;
 use App\Bill;
+use DB;
 use Auth;
 
 class DashboardController extends Controller
@@ -36,10 +37,17 @@ class DashboardController extends Controller
         ->take(5)
         ->get();
 
+      $spent = DB::table('transactions')
+        ->where('user_id', Auth::user()->id)
+        ->sum('amount');
+
+      $remaining = Auth::user()->salary - $spent;
+
       return view('dashboard.index', [
         'transactions' => $transactions,
-        'bills' => $bills
+        'bills' => $bills,
+        'remaining' => $remaining
       ]);
     }
-    
+
 }

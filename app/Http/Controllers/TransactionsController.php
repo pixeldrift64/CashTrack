@@ -34,7 +34,11 @@ class TransactionsController extends Controller
     $transaction->name = request('name');
     $transaction->description = request('description');
     $transaction->amount = request('amount');
-    $transaction->created_at = request('payment_date');
+
+    $payment_date = request('payment_date');
+    if ($payment_date != \Carbon\Carbon::now()->toDateString()) {
+      $transaction->created_at = request('payment_date');
+    }
 
     $transaction->save();
 
