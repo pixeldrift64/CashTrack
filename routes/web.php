@@ -18,3 +18,7 @@ Route::get('/', 'DashboardController@index');
 Route::get('/bills', 'BillsController@index');
 Route::get('/bills/add', 'BillsController@create');
 Route::post('/bills', 'BillsController@store');
+
+Route::get('/transactions', 'TransactionsController@index');
+Route::get('/transactions/add', 'TransactionsController@create');
+Route::post('/transactions', 'TransactionsController@store');
